@@ -1,40 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website With PLP!</title>
-</head>
-<body>
-<!-- Website header -->
-<header>
-    <h1>Welcome to My First Website!</h1>
-<header>
-<!-- Main Navigation bar -->
- <nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<button id="changeButton">Change Paragraphs</button>
 
-<!-- Primary content area -->
-<main>
-    <section>
-        <h2>About Us</h2>
-        <p>Hello! I'm learning web development and this is my first website.</p>
-    
-        <article>
-            <h3>Web Development Basics</h3>
-            <p>HTML5 provides semantic elements that help search engines and assistive technologies understand your content structure.</p>
-        </article>
-      <section>
-  <main>
-  
-  <footer>
-    <p>Contact us: <a href ="https://academy.powerlearnprojectafrica.org/module/666c1cd07d960ad7359a3d14?study=true&week=666c326d5e8c77f6ed1a4cea&assignment=666c40135e8c77f6ed1a4d0e" target="_blank" > cheruiyot.elk@gmail.com</a></p>
-    <p>&copy; 2023 My First Website. All Rights Reserved.</p>
-  </footer>
-<body>
-</html>
+<style>
+  /* Adding smooth transition for text color */
+  p {
+    transition: color 0.5s ease;
+  }
+
+  /* Adding some initial colors */
+  .original {
+    color: black;
+  }
+  .new {
+    color: blue;
+  }
+</style>
+
+<script>
+  // Get the paragraphs and the button
+  const paragraphs = document.getElementsByTagName("p");
+  const button = document.getElementById("changeButton");
+
+  // Track whether the paragraphs have been changed or not
+  let isChanged = false;
+
+  // Initial colors for the paragraphs
+  paragraphs[0].classList.add('original');
+  paragraphs[1].classList.add('original');
+
+  // When the button is clicked, toggle the text and styles of the paragraphs
+  button.addEventListener("click", function() {
+    if (isChanged) {
+      // Change the paragraphs back to their original text
+      paragraphs[0].textContent = "Paragraph 1";
+      paragraphs[1].textContent = "Paragraph 2";
+      // Set the color back to original (black)
+      paragraphs[0].classList.remove('new');
+      paragraphs[1].classList.remove('new');
+      paragraphs[0].classList.add('original');
+      paragraphs[1].classList.add('original');
+    } else {
+      // Change the paragraphs to new text
+      paragraphs[0].textContent = "New text for Paragraph 1!";
+      paragraphs[1].textContent = "New text for Paragraph 2!";
+      // Change color to blue (new text color)
+      paragraphs[0].classList.remove('original');
+      paragraphs[1].classList.remove('original');
+      paragraphs[0].classList.add('new');
+      paragraphs[1].classList.add('new');
+    }
+
+    // Toggle the isChanged flag
+    isChanged = !isChanged;
+  });
+</script>

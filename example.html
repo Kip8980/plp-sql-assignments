@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Page with Smooth Transition and Fade-In</title>
+  <style>
+    /* Start with body invisible */
+    body {
+      opacity: 0;
+      background-color: white;
+      font-size: 14px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      transition: all 2s ease, opacity 1s ease;
+    }
+
+    /* Once loaded, fade in */
+    body.loaded {
+      opacity: 1;
+    }
+
+    h1, p {
+      transition: all 2s ease;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
+        background-color: lightblue;
+        font-size: 16px;
+        padding: 20px;
+        line-height: 1.5;
+      }
+
+      h1 {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+  <script>
+    // Add 'loaded' class when page finishes loading
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</head>
+<body>
+  <h1>Welcome to My Fancy Responsive Page</h1>
+  <p>This page fades in on load and transitions smoothly when you resize the window!</p>
+</body>
+</html>
